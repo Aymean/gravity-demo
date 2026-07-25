@@ -87,6 +87,12 @@ html[lang="en"] div[lang-en].block{display:block;}
 html[lang="ar"] span[lang-ar].block,
 html[lang="ar"] div[lang-ar].block{display:block;}
 
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-0.15em;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.icon-fill{fill:currentColor;stroke:none;}
+.listing-specs .icon{width:15px;height:15px;}
+.header-call .icon{width:15px;height:15px;}
+.social-row .icon{width:18px;height:18px;}
+
 h1,h2,h3,h4{font-weight:800;line-height:1.25;}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--green-dark);background:rgba(124,185,85,.12);padding:7px 16px;border-radius:999px;margin-bottom:16px;}
 .section-title{font-size:clamp(26px,4vw,40px);margin-bottom:14px;}
@@ -339,6 +345,34 @@ footer .fine a{color:rgba(255,255,255,.7);}
 </head>
 <body>
 
+<!-- ============ ICON SPRITE ============ -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+<symbol id="icon-key" viewBox="0 0 24 24"><circle cx="7" cy="14" r="3.2"/><line x1="9.8" y1="11.5" x2="19" y2="2.3"/><line x1="15.2" y1="6.1" x2="17.6" y2="8.5"/><line x1="17.6" y1="3.7" x2="20" y2="6.1"/></symbol>
+<symbol id="icon-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><line x1="6" y1="12" x2="6.01" y2="12"/><line x1="18" y1="12" x2="18.01" y2="12"/></symbol>
+<symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><polyline points="8 12.5 11 15.5 16 9"/></symbol>
+<symbol id="icon-trending-up" viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></symbol>
+<symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><line x1="17.5" y1="12" x2="20.8" y2="12"/><line x1="14.75" y1="16.76" x2="16.35" y2="19.53"/><line x1="9.25" y1="16.76" x2="7.65" y2="19.53"/><line x1="6.5" y1="12" x2="3.2" y2="12"/><line x1="9.25" y1="7.24" x2="7.65" y2="4.47"/><line x1="14.75" y1="7.24" x2="16.35" y2="4.47"/></symbol>
+<symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></symbol>
+<symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="icon-message" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+<symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
+<symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><polyline points="12 6.5 12 12 16 14"/></symbol>
+<symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6.5"/><polyline points="8.2 13.9 7 22.5 12 19.7 17 22.5 15.8 13.9"/></symbol>
+<symbol id="icon-bed" viewBox="0 0 24 24"><rect x="2" y="11" width="20" height="7" rx="1.5"/><path d="M2 18v3"/><path d="M22 18v3"/><rect x="4" y="7" width="6" height="4" rx="1"/><line x1="2" y1="14" x2="2" y2="7"/></symbol>
+<symbol id="icon-bath" viewBox="0 0 24 24"><path d="M4 12h16a1 1 0 0 1 1 1v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-2a1 1 0 0 1 1-1z"/><path d="M4 12V6a2 2 0 0 1 3.5-1.3"/><line x1="2" y1="20.5" x2="4" y2="20.5"/><line x1="20" y1="20.5" x2="22" y2="20.5"/></symbol>
+<symbol id="icon-ruler" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="1.5"/><line x1="7" y1="7" x2="7" y2="10"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="17" y1="7" x2="17" y2="10"/></symbol>
+<symbol id="icon-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></symbol>
+<symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 2h-2.9A5.6 5.6 0 0 0 9 7.6V10H6v4h3v8h4v-8h3.4l.6-4h-4V7.6a1 1 0 0 1 1-1h3z"/></symbol>
+<symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+</defs>
+</svg>
+
 <!-- ============ HEADER ============ -->
 <header id="siteHeader">
   <div class="container">
@@ -351,7 +385,7 @@ footer .fine a{color:rgba(255,255,255,.7);}
       <a href="#contact" lang-ar class="block">تواصل معنا</a><a href="#contact" lang-en>Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="header-call" href="tel:+97126719404">📞 <span lang-ar class="block">04 671 9404</span><span lang-en>02 671 9404</span></a>
+      <a class="header-call" href="tel:+97126719404"><svg class="icon"><use href="#icon-phone"></use></svg> <span lang-ar class="block">04 671 9404</span><span lang-en>02 671 9404</span></a>
       <button class="lang-btn" onclick="setLang(document.documentElement.lang==='ar'?'en':'ar')"><span lang-ar class="block">EN</span><span lang-en>AR</span></button>
       <button class="hamburger" onclick="document.getElementById('drawer').classList.add('open')"><span></span><span></span><span></span></button>
     </div>
@@ -359,7 +393,7 @@ footer .fine a{color:rgba(255,255,255,.7);}
 </header>
 
 <div class="mobile-drawer" id="drawer">
-  <span class="close-drawer" onclick="document.getElementById('drawer').classList.remove('open')">✕</span>
+  <span class="close-drawer" onclick="document.getElementById('drawer').classList.remove('open')"><svg class="icon"><use href="#icon-x"></use></svg></span>
   <a href="#about" onclick="document.getElementById('drawer').classList.remove('open')"><span lang-ar class="block">من نحن</span><span lang-en>About</span></a>
   <a href="#services" onclick="document.getElementById('drawer').classList.remove('open')"><span lang-ar class="block">خدماتنا</span><span lang-en>Services</span></a>
   <a href="#listings" onclick="document.getElementById('drawer').classList.remove('open')"><span lang-ar class="block">العقارات المطروحة</span><span lang-en>Listings</span></a>
@@ -381,7 +415,7 @@ footer .fine a{color:rgba(255,255,255,.7);}
       <p class="lead"><span lang-ar class="block">Gravity Real Estate — وكالة عقارية حائزة على جوائز، بخبرة تتجاوز 15 عامًا وشراكات رسمية مع Aldar وEmaar وBloom. بيع، شراء، تأجير واستثمار — كل ذلك تحت سقف واحد.</span><span lang-en>Gravity Real Estate — an award-winning agency with 15+ years of experience and official partnerships with Aldar, Emaar and Bloom. Buy, sell, rent and invest — all under one roof.</span></p>
       <div class="hero-ctas">
         <a href="#wizard" class="btn btn-gold"><span lang-ar class="block">ابدأ البحث عن عقارك</span><span lang-en>Start Your Property Search</span></a>
-        <a href="https://wa.me/971528647349" target="_blank" class="btn btn-outline">💬 <span lang-ar class="block">واتساب مباشر</span><span lang-en>WhatsApp Us</span></a>
+        <a href="https://wa.me/971528647349" target="_blank" class="btn btn-outline"><svg class="icon"><use href="#icon-message"></use></svg> <span lang-ar class="block">واتساب مباشر</span><span lang-en>WhatsApp Us</span></a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><b class="stat-count" data-target="15">15+</b><span lang-ar class="block">سنة خبرة</span><span lang-en>Years Experience</span></div>
@@ -414,7 +448,7 @@ footer .fine a{color:rgba(255,255,255,.7);}
       <div class="about-photos reveal">
         <img class="about-photo-main" src="images/comm-al-raha-beach.webp" alt="Gravity Real Estate Abu Dhabi" loading="lazy">
         <div class="about-badge">
-          <span style="font-size:30px;">🏆</span>
+          <span style="font-size:30px;"><svg class="icon"><use href="#icon-award"></use></svg></span>
           <div><b>9</b><span lang-ar class="block">جوائز صناعية موثقة</span><span lang-en>Verified industry awards</span></div>
         </div>
       </div>
@@ -460,14 +494,14 @@ footer .fine a{color:rgba(255,255,255,.7);}
     <h2 class="section-title"><span lang-ar class="block">كل ما تحتاجه العقاري، في مكان واحد</span><span lang-en>Everything Real Estate, In One Place</span></h2>
     <p class="section-sub"><span lang-ar class="block">وكلاء خبراء في التفاوض، شفافية تامة في كل صفقة، ونتائج مثبتة في سوق أبوظبي العقاري.</span><span lang-en>Expert negotiators, full transparency in every transaction, and proven results across Abu Dhabi's property market.</span></p>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon">🏠</div><h3><span lang-ar class="block">شراء عقار</span><span lang-en>Property Buying</span></h3><p><span lang-ar class="block">من تحديد العقار المثالي إلى التفاوض على أفضل الشروط.</span><span lang-en>From finding the ideal property to negotiating the best terms.</span></p></div>
-      <div class="service-card"><div class="service-icon">💰</div><h3><span lang-ar class="block">بيع عقار</span><span lang-en>Property Selling</span></h3><p><span lang-ar class="block">تسويق استراتيجي للوصول لأفضل المشترين وأعلى عائد.</span><span lang-en>Strategic marketing to reach qualified buyers and maximize your return.</span></p></div>
-      <div class="service-card"><div class="service-icon">🔑</div><h3><span lang-ar class="block">إيجاد عقار للإيجار</span><span lang-en>Rental Property Finding</span></h3><p><span lang-ar class="block">تشكيلة واسعة من الشقق والفلل التي تناسب أسلوب حياتك.</span><span lang-en>A wide selection of apartments and villas that match your lifestyle.</span></p></div>
-      <div class="service-card"><div class="service-icon">✅</div><h3><span lang-ar class="block">إيجاد مستأجرين</span><span lang-en>Tenant Placement</span></h3><p><span lang-ar class="block">فحص دقيق للمستأجرين المحتملين لحماية استثمارك.</span><span lang-en>Careful screening of potential tenants to protect your investment.</span></p></div>
-      <div class="service-card"><div class="service-icon">📈</div><h3><span lang-ar class="block">استشارات استثمارية</span><span lang-en>Investment Guidance</span></h3><p><span lang-ar class="block">تحليل اتجاهات السوق لمساعدتك على اتخاذ قرار مدروس.</span><span lang-en>Market trend analysis to help you make informed investment decisions.</span></p></div>
-      <div class="service-card"><div class="service-icon">🎯</div><h3><span lang-ar class="block">تسويق عقاري</span><span lang-en>Strategic Marketing</span></h3><p><span lang-ar class="block">تصوير احترافي، جولات افتراضية، وحملات رقمية مستهدفة.</span><span lang-en>Professional photography, virtual tours, and targeted digital campaigns.</span></p></div>
-      <div class="service-card"><div class="service-icon">🛠️</div><h3><span lang-ar class="block">إدارة الأملاك</span><span lang-en>Property Management</span></h3><p><span lang-ar class="block">علاقات المستأجرين والصيانة والإدارة المالية بدقة تامة.</span><span lang-en>Tenant relations, maintenance, and financial management handled with care.</span></p></div>
-      <div class="service-card"><div class="service-icon">🤝</div><h3><span lang-ar class="block">وساطة عقارية</span><span lang-en>Property Brokerage</span></h3><p><span lang-ar class="block">وكلاء محترفون يمثلونك بمهنية في كل صفقة.</span><span lang-en>Professional agents representing you with dedication in every deal.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-home"></use></svg></div><h3><span lang-ar class="block">شراء عقار</span><span lang-en>Property Buying</span></h3><p><span lang-ar class="block">من تحديد العقار المثالي إلى التفاوض على أفضل الشروط.</span><span lang-en>From finding the ideal property to negotiating the best terms.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-cash"></use></svg></div><h3><span lang-ar class="block">بيع عقار</span><span lang-en>Property Selling</span></h3><p><span lang-ar class="block">تسويق استراتيجي للوصول لأفضل المشترين وأعلى عائد.</span><span lang-en>Strategic marketing to reach qualified buyers and maximize your return.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-key"></use></svg></div><h3><span lang-ar class="block">إيجاد عقار للإيجار</span><span lang-en>Rental Property Finding</span></h3><p><span lang-ar class="block">تشكيلة واسعة من الشقق والفلل التي تناسب أسلوب حياتك.</span><span lang-en>A wide selection of apartments and villas that match your lifestyle.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-check"></use></svg></div><h3><span lang-ar class="block">إيجاد مستأجرين</span><span lang-en>Tenant Placement</span></h3><p><span lang-ar class="block">فحص دقيق للمستأجرين المحتملين لحماية استثمارك.</span><span lang-en>Careful screening of potential tenants to protect your investment.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-trending-up"></use></svg></div><h3><span lang-ar class="block">استشارات استثمارية</span><span lang-en>Investment Guidance</span></h3><p><span lang-ar class="block">تحليل اتجاهات السوق لمساعدتك على اتخاذ قرار مدروس.</span><span lang-en>Market trend analysis to help you make informed investment decisions.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-target"></use></svg></div><h3><span lang-ar class="block">تسويق عقاري</span><span lang-en>Strategic Marketing</span></h3><p><span lang-ar class="block">تصوير احترافي، جولات افتراضية، وحملات رقمية مستهدفة.</span><span lang-en>Professional photography, virtual tours, and targeted digital campaigns.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-settings"></use></svg></div><h3><span lang-ar class="block">إدارة الأملاك</span><span lang-en>Property Management</span></h3><p><span lang-ar class="block">علاقات المستأجرين والصيانة والإدارة المالية بدقة تامة.</span><span lang-en>Tenant relations, maintenance, and financial management handled with care.</span></p></div>
+      <div class="service-card"><div class="service-icon"><svg class="icon"><use href="#icon-briefcase"></use></svg></div><h3><span lang-ar class="block">وساطة عقارية</span><span lang-en>Property Brokerage</span></h3><p><span lang-ar class="block">وكلاء محترفون يمثلونك بمهنية في كل صفقة.</span><span lang-en>Professional agents representing you with dedication in every deal.</span></p></div>
     </div>
   </div>
 </section>
@@ -480,17 +514,17 @@ footer .fine a{color:rgba(255,255,255,.7);}
     <p class="section-sub"><span lang-ar class="block">نماذج من العقارات المطروحة حاليًا عبر وكلائنا — الأسعار والمواصفات حقيقية ومحدثة.</span><span lang-en>A sample of properties currently listed by our agents — real prices, real specs.</span></p>
     <div class="listings-grid">
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing1.webp" alt="Junior 1BR Sea View Al Reem Island" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 895,000</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة غرفة نوم واحدة | إطلالة بحرية كاملة</span><span lang-en>Junior 1BR | Full Sea View | High Exit Value</span></h3><div class="listing-specs"><span>🛏 <b>1</b></span><span>🛁 <b>1</b></span><span>📐 <b>452 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing1.webp" alt="Junior 1BR Sea View Al Reem Island" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 895,000</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة غرفة نوم واحدة | إطلالة بحرية كاملة</span><span lang-en>Junior 1BR | Full Sea View | High Exit Value</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> <b>1</b></span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>1</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>452 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing4.webp" alt="4BR Villa with Maids Room" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 11,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">فيلا 4 غرف مع غرفة خادمة | وحدات متعددة متاحة</span><span lang-en>Exclusive 4BR Villa + Maid's Room | Multiple Units</span></h3><div class="listing-specs"><span>🛏 <b>4</b></span><span>🛁 <b>6</b></span><span>📐 <b>5,802 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Mohamed Chaar</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing4.webp" alt="4BR Villa with Maids Room" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 11,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">فيلا 4 غرف مع غرفة خادمة | وحدات متعددة متاحة</span><span lang-en>Exclusive 4BR Villa + Maid's Room | Multiple Units</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> <b>4</b></span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>6</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>5,802 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Mohamed Chaar</b></div></div></div>
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing2.webp" alt="Stylish 3BR Apartment" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 4,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة أنيقة 3 غرف | معيشة عائلية | موقع مميز</span><span lang-en>Stylish 3BR Apartment | Family Living | Prime Area</span></h3><div class="listing-specs"><span>🛏 <b>3</b></span><span>🛁 <b>3</b></span><span>📐 <b>1,565 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing2.webp" alt="Stylish 3BR Apartment" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 4,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة أنيقة 3 غرف | معيشة عائلية | موقع مميز</span><span lang-en>Stylish 3BR Apartment | Family Living | Prime Area</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> <b>3</b></span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>3</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>1,565 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing3.webp" alt="1BR Contemporary Design" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 1,699,999</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة رحبة غرفة نوم | تصميم عصري | موقع مميز</span><span lang-en>Spacious 1BR | Contemporary Design | Prime Area</span></h3><div class="listing-specs"><span>🛏 <b>1</b></span><span>🛁 <b>1</b></span><span>📐 <b>995 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing3.webp" alt="1BR Contemporary Design" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 1,699,999</span></div><div class="listing-body"><h3><span lang-ar class="block">شقة رحبة غرفة نوم | تصميم عصري | موقع مميز</span><span lang-en>Spacious 1BR | Contemporary Design | Prime Area</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> <b>1</b></span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>1</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>995 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing1.webp" alt="Luxury 4BR Villa Elite Community" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 9,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">فيلا فاخرة 4 غرف | تصميم واسع | مجتمع راقٍ</span><span lang-en>Luxury 4BR Villa | Expansive Layout | Elite Community</span></h3><div class="listing-specs"><span>🛏 <b>4</b></span><span>🛁 <b>5</b></span><span>📐 <b>6,275 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing1.webp" alt="Luxury 4BR Villa Elite Community" loading="lazy"><span class="listing-badge" lang-ar>للبيع</span><span class="listing-badge" lang-en>For Sale</span><span class="listing-price">AED 9,000,000</span></div><div class="listing-body"><h3><span lang-ar class="block">فيلا فاخرة 4 غرف | تصميم واسع | مجتمع راقٍ</span><span lang-en>Luxury 4BR Villa | Expansive Layout | Elite Community</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> <b>4</b></span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>5</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>6,275 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ziyad Al Khateib</b></div></div></div>
 
-      <div class="listing-card"><div class="listing-img"><img src="images/listing2.webp" alt="Luxury Studio Off-Plan" loading="lazy"><span class="listing-badge" lang-ar>طرح أولي</span><span class="listing-badge" lang-en>Off-Plan</span><span class="listing-price">AED 2,920,000</span></div><div class="listing-body"><h3><span lang-ar class="block">استوديو فاخر | تصميم ذكي | طرح أولي</span><span lang-en>Luxury Studio | Smart Layout | Off-Plan Sale</span></h3><div class="listing-specs"><span>🛏 Studio</span><span>🛁 <b>1</b></span><span>📐 <b>496 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ammar Mousa</b></div></div></div>
+      <div class="listing-card"><div class="listing-img"><img src="images/listing2.webp" alt="Luxury Studio Off-Plan" loading="lazy"><span class="listing-badge" lang-ar>طرح أولي</span><span class="listing-badge" lang-en>Off-Plan</span><span class="listing-price">AED 2,920,000</span></div><div class="listing-body"><h3><span lang-ar class="block">استوديو فاخر | تصميم ذكي | طرح أولي</span><span lang-en>Luxury Studio | Smart Layout | Off-Plan Sale</span></h3><div class="listing-specs"><span><svg class="icon"><use href="#icon-bed"></use></svg> Studio</span><span><svg class="icon"><use href="#icon-bath"></use></svg> <b>1</b></span><span><svg class="icon"><use href="#icon-ruler"></use></svg> <b>496 sqft</b></span></div><div class="listing-agent"><span lang-ar class="block">الوكيل</span><span lang-en>Agent</span> <b>Ammar Mousa</b></div></div></div>
 
     </div>
   </div>
@@ -606,10 +640,10 @@ footer .fine a{color:rgba(255,255,255,.7);}
           <h3><span lang-ar class="block">ماذا تريد أن تفعل؟</span><span lang-en>What are you looking to do?</span></h3>
           <p class="hint"><span lang-ar class="block">اختر ما يناسبك للبدء</span><span lang-en>Choose an option to get started</span></p>
           <div class="opt-grid" id="intentGrid">
-            <button class="opt-btn" data-val-ar="شراء عقار" data-val-en="Buy a Property">🏠 <span lang-ar class="block">شراء عقار</span><span lang-en>Buy a Property</span></button>
-            <button class="opt-btn" data-val-ar="استئجار عقار" data-val-en="Rent a Property">🔑 <span lang-ar class="block">استئجار عقار</span><span lang-en>Rent a Property</span></button>
-            <button class="opt-btn" data-val-ar="بيع/تأجير عقاري" data-val-en="Sell / Lease My Property">💰 <span lang-ar class="block">بيع / تأجير عقاري</span><span lang-en>Sell / Lease My Property</span></button>
-            <button class="opt-btn" data-val-ar="استشارة استثمارية" data-val-en="Investment Guidance">📈 <span lang-ar class="block">استشارة استثمارية</span><span lang-en>Investment Guidance</span></button>
+            <button class="opt-btn" data-val-ar="شراء عقار" data-val-en="Buy a Property"><svg class="icon"><use href="#icon-home"></use></svg> <span lang-ar class="block">شراء عقار</span><span lang-en>Buy a Property</span></button>
+            <button class="opt-btn" data-val-ar="استئجار عقار" data-val-en="Rent a Property"><svg class="icon"><use href="#icon-key"></use></svg> <span lang-ar class="block">استئجار عقار</span><span lang-en>Rent a Property</span></button>
+            <button class="opt-btn" data-val-ar="بيع/تأجير عقاري" data-val-en="Sell / Lease My Property"><svg class="icon"><use href="#icon-cash"></use></svg> <span lang-ar class="block">بيع / تأجير عقاري</span><span lang-en>Sell / Lease My Property</span></button>
+            <button class="opt-btn" data-val-ar="استشارة استثمارية" data-val-en="Investment Guidance"><svg class="icon"><use href="#icon-trending-up"></use></svg> <span lang-ar class="block">استشارة استثمارية</span><span lang-en>Investment Guidance</span></button>
           </div>
         </div>
 
@@ -677,7 +711,7 @@ footer .fine a{color:rgba(255,255,255,.7);}
         <div class="wizard-nav">
           <button class="btn btn-outline-dark" id="wizBack" style="display:none;"><span lang-ar class="block">رجوع</span><span lang-en>Back</span></button>
           <button class="btn btn-green" id="wizNext" style="margin-inline-start:auto;"><span lang-ar class="block">التالي</span><span lang-en>Next</span></button>
-          <button class="btn btn-gold" id="wizSend" style="display:none;margin-inline-start:auto;">💬 <span lang-ar class="block">إرسال عبر واتساب</span><span lang-en>Send via WhatsApp</span></button>
+          <button class="btn btn-gold" id="wizSend" style="display:none;margin-inline-start:auto;"><svg class="icon"><use href="#icon-message"></use></svg> <span lang-ar class="block">إرسال عبر واتساب</span><span lang-en>Send via WhatsApp</span></button>
         </div>
       </div>
     </div>
@@ -728,15 +762,15 @@ footer .fine a{color:rgba(255,255,255,.7);}
         <iframe src="https://www.google.com/maps?q=Addax+Office+Tower+Al+Reem+Island+Abu+Dhabi&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Gravity Real Estate location"></iframe>
       </div>
       <div class="contact-info-list">
-        <div class="contact-info-item"><div class="contact-info-icon">📍</div><div><b><span lang-ar class="block">المكتب الرئيسي</span><span lang-en>Head Office</span></b><span lang-ar class="block">مكتب 1510-1512، برج أداكس، جزيرة الريم، أبوظبي</span><span lang-en>Office 1510-1512, Addax Office Tower, Al Reem Island, Abu Dhabi</span></div></div>
-        <div class="contact-info-item"><div class="contact-info-icon">📞</div><div><b><span lang-ar class="block">اتصل بنا</span><span lang-en>Call Us</span></b><a href="tel:+97126719404">+971 2 671 9404</a></div></div>
-        <div class="contact-info-item"><div class="contact-info-icon">💬</div><div><b>WhatsApp</b><a href="https://wa.me/971528647349" target="_blank">+971 52 864 7349</a></div></div>
-        <div class="contact-info-item"><div class="contact-info-icon">✉️</div><div><b><span lang-ar class="block">البريد الإلكتروني</span><span lang-en>Email</span></b><a href="mailto:info@gravity-re.com">info@gravity-re.com</a></div></div>
-        <div class="contact-info-item"><div class="contact-info-icon">🕐</div><div><b><span lang-ar class="block">أوقات العمل</span><span lang-en>Working Hours</span></b><span lang-ar class="block">السبت - الخميس: 9 صباحًا - 7 مساءً</span><span lang-en>Sat - Thu: 9 AM - 7 PM</span></div></div>
+        <div class="contact-info-item"><div class="contact-info-icon"><svg class="icon"><use href="#icon-map-pin"></use></svg></div><div><b><span lang-ar class="block">المكتب الرئيسي</span><span lang-en>Head Office</span></b><span lang-ar class="block">مكتب 1510-1512، برج أداكس، جزيرة الريم، أبوظبي</span><span lang-en>Office 1510-1512, Addax Office Tower, Al Reem Island, Abu Dhabi</span></div></div>
+        <div class="contact-info-item"><div class="contact-info-icon"><svg class="icon"><use href="#icon-phone"></use></svg></div><div><b><span lang-ar class="block">اتصل بنا</span><span lang-en>Call Us</span></b><a href="tel:+97126719404">+971 2 671 9404</a></div></div>
+        <div class="contact-info-item"><div class="contact-info-icon"><svg class="icon"><use href="#icon-message"></use></svg></div><div><b>WhatsApp</b><a href="https://wa.me/971528647349" target="_blank">+971 52 864 7349</a></div></div>
+        <div class="contact-info-item"><div class="contact-info-icon"><svg class="icon"><use href="#icon-mail"></use></svg></div><div><b><span lang-ar class="block">البريد الإلكتروني</span><span lang-en>Email</span></b><a href="mailto:info@gravity-re.com">info@gravity-re.com</a></div></div>
+        <div class="contact-info-item"><div class="contact-info-icon"><svg class="icon"><use href="#icon-clock"></use></svg></div><div><b><span lang-ar class="block">أوقات العمل</span><span lang-en>Working Hours</span></b><span lang-ar class="block">السبت - الخميس: 9 صباحًا - 7 مساءً</span><span lang-en>Sat - Thu: 9 AM - 7 PM</span></div></div>
         <div class="social-row">
-          <a href="https://www.facebook.com/GravityRE/" target="_blank" aria-label="Facebook">f</a>
-          <a href="https://www.instagram.com/gravity_re/" target="_blank" aria-label="Instagram">◎</a>
-          <a href="https://www.tiktok.com/@gravity.real.estate" target="_blank" aria-label="TikTok">♪</a>
+          <a href="https://www.facebook.com/GravityRE/" target="_blank" aria-label="Facebook"><svg class="icon icon-fill"><use href="#icon-facebook"></use></svg></a>
+          <a href="https://www.instagram.com/gravity_re/" target="_blank" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+          <a href="https://www.tiktok.com/@gravity.real.estate" target="_blank" aria-label="TikTok"><svg class="icon"><use href="#icon-music"></use></svg></a>
         </div>
       </div>
     </div>
@@ -749,9 +783,9 @@ footer .fine a{color:rgba(255,255,255,.7);}
     <div class="footer-top">
       <img src="images/logo-white.webp" alt="Gravity Real Estate">
       <div class="social-row">
-        <a href="https://www.facebook.com/GravityRE/" target="_blank" aria-label="Facebook">f</a>
-        <a href="https://www.instagram.com/gravity_re/" target="_blank" aria-label="Instagram">◎</a>
-        <a href="https://www.tiktok.com/@gravity.real.estate" target="_blank" aria-label="TikTok">♪</a>
+        <a href="https://www.facebook.com/GravityRE/" target="_blank" aria-label="Facebook"><svg class="icon icon-fill"><use href="#icon-facebook"></use></svg></a>
+        <a href="https://www.instagram.com/gravity_re/" target="_blank" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+        <a href="https://www.tiktok.com/@gravity.real.estate" target="_blank" aria-label="TikTok"><svg class="icon"><use href="#icon-music"></use></svg></a>
       </div>
     </div>
     <div class="fine">
@@ -763,11 +797,11 @@ footer .fine a{color:rgba(255,255,255,.7);}
 
 <!-- ============ MOBILE BAR + WA FLOAT ============ -->
 <div class="mobile-bar">
-  <a href="tel:+97126719404"><span class="ic">📞</span><span lang-ar class="block">اتصال</span><span lang-en>Call</span></a>
-  <a href="https://wa.me/971528647349" target="_blank"><span class="ic">💬</span><span lang-ar class="block">واتساب</span><span lang-en>WhatsApp</span></a>
-  <a href="#wizard"><span class="ic">🏠</span><span lang-ar class="block">ابحث</span><span lang-en>Search</span></a>
+  <a href="tel:+97126719404"><span class="ic"><svg class="icon"><use href="#icon-phone"></use></svg></span><span lang-ar class="block">اتصال</span><span lang-en>Call</span></a>
+  <a href="https://wa.me/971528647349" target="_blank"><span class="ic"><svg class="icon"><use href="#icon-message"></use></svg></span><span lang-ar class="block">واتساب</span><span lang-en>WhatsApp</span></a>
+  <a href="#wizard"><span class="ic"><svg class="icon"><use href="#icon-home"></use></svg></span><span lang-ar class="block">ابحث</span><span lang-en>Search</span></a>
 </div>
-<a class="wa-float" href="https://wa.me/971528647349" target="_blank" aria-label="WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/971528647349" target="_blank" aria-label="WhatsApp"><svg class="icon"><use href="#icon-message"></use></svg></a>
 
 <script>
 function setLang(lang){
